@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -6,25 +6,32 @@
 </head>
 <body>
 
-	<div ng-app="oneApp">
-		<div ng-controller="helloWorld">
-			<p>The name is <span ng-bind="fullName()"></span></p>
-		</div>
-	</div>
-	
-	<div ng-app="twoApp">
-		<div ng-controller="helloWorld">
-			<p>The name is <span ng-bind="fullName()"></span></p>
-		</div>
-	</div>
+    <div ng-app="oneApp">
+        <div ng-controller="helloWorld">
+            <p>The name is <span ng-bind="fullName()"></span></p>
+        </div>
+    </div>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-	
-	<script src="modules/one/app.js"></script>
-	<script src="modules/one/controllers/helloWorld.js"></script>
-	
-	<script src="modules/two/app.js"></script>
-	<script src="modules/two/controllers/helloWorld.js"></script>
-	
+    <div ng-app="twoApp">
+        <div ng-controller="helloWorld">
+            <p>The name is <span ng-bind="fullName()"></span></p>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <script src="modules/one/app.js"></script>
+    <script src="modules/one/controllers/helloWorld.js"></script>
+
+    <script src="modules/two/app.js"></script>
+    <script src="modules/two/controllers/helloWorld.js"></script>
+    <script>
+        //bootstrap it manually 
+        angular.element(document).ready(function () {
+            angular.bootstrap(document.getElementById("first"), ["oneApp"]);
+            angular.bootstrap(document.getElementById("second"), ["twoApp"]);
+        });
+    </script>
+
 </body>
 </html>
